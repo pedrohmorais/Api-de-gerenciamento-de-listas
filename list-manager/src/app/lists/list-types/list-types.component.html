@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  *ngFor="let listType of changeCategory()">
+      <td>{{listType.id}}</td>
+      <td>{{listType.name}}</td>
+      <td>{{listType.status}}</td>
+    </tr>
+    <tr><td *ngIf="haveLists==0" colspan="3">Sem itens nesta categoria.</td></tr>
+  </tbody>
+</table>

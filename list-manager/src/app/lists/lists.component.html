@@ -1,0 +1,30 @@
+<section class="content-header">
+  <h1>
+    Selecione o tipo da lista
+  </h1>
+</section>
+
+
+<section class="content">
+  
+  <div class="row">
+    <div class="col-sm-6 col-xs-12">
+      <div class="form-group">
+        <label for=""></label>
+        <select class="form-control" (change)="onChangeCategory($event.target.value)">
+          <option value="0">Selecione</option>
+          <option *ngFor="let category of categories"  value="{{category.id}}">
+            {{category.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <!-- /.col -->
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-xs-12">
+        <app-list-types></app-list-types>
+    </div>
+  </div>
+
+</section>

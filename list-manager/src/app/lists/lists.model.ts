@@ -11,5 +11,20 @@ class ListType {
     public status : number
 }
 
+class List {
+    public id : number  
+    public type : number
+    public name : string
+    public status : number
+    public items : ListItem[]
+}
 
-export {Category, ListType}
+class ListItem {
+    public id : number  
+    public listId : number
+    public name : string
+    public status : number
+}
+
+
+export {Category, ListType,ListItem,List}

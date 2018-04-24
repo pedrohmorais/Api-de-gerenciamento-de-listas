@@ -1,17 +1,41 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr  *ngFor="let listType of changeCategory()">
-      <td>{{listType.id}}</td>
-      <td>{{listType.name}}</td>
-      <td>{{listType.status}}</td>
-    </tr>
-    <tr><td *ngIf="haveLists==0" colspan="3">Sem itens nesta categoria.</td></tr>
-  </tbody>
-</table>
+<div *ngIf="category>0" class="row">
+  <div class="col-sm-12 col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let listType of changeCategory()">
+          <td>{{listType.id}}</td>
+          <td>{{listType.name}}</td>
+          <td>{{listType.status}}</td>
+        </tr>
+        <tr [hidden]="getHaveLists()>0"><td  colspan="3">Sem itens nesta categoria.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- end col -->
+  <div class="col-sm-12 col-md-6">
+    <form [formGroup]="formList">
+      <div class="form-group row">
+        <label for="nomelista" class="col-sm-1-12 col-form-label">Adicionar nova lista</label>
+        <div class="col-sm-1-12">
+          <input type="text" class="form-control" formControlName="name" id="nomelista" placeholder="Nome da lista"/>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+          <button type="submit" class="btn btn-primary"
+            [disabled]="!formList.valid"
+            (click)="createList(formList.value)"
+            >CRIAR LISTA</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
